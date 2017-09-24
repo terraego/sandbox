@@ -1,0 +1,69 @@
+<assembly xmlns="http://maven.apache.org/ASSEMBLY/2.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/ASSEMBLY/2.0.0 http://maven.apache.org/xsd/assembly-2.0.0.xsd">
+    
+	<id>distribution</id>
+    <includeBaseDirectory>false</includeBaseDirectory>
+	
+	<formats>
+        <format>jar</format>
+    </formats>
+	
+    <fileSets>
+        <!-- Copy JS chunk files -->
+        <fileSet>
+            <directory>${basedir}/dist/bundles/clientlib-dbk/js</directory>
+            <outputDirectory>./etc/designs/debijenkorf-website/clientlib-dbk/js</outputDirectory>
+            <includes>
+                <include>*-chunk-*.js</include>
+            </includes>
+        </fileSet>
+		
+        <!-- Copy CSS files -->
+        <fileSet>
+            <directory>${basedir}/dist/bundles</directory>
+            <outputDirectory>./etc/designs/debijenkorf-website/clientlib-dbk/css</outputDirectory>
+            <includes>
+                <include>*.css</include>
+            </includes>
+        </fileSet>
+		
+        <!-- Copy image files -->
+        <fileSet>
+            <directory>${basedir}/dist/img</directory>
+            <outputDirectory>./etc/designs/debijenkorf-website/img</outputDirectory>
+            <includes>
+                <include>**/*</include>
+            </includes>
+        </fileSet>
+		
+        <!-- Copy font files -->
+        <fileSet> 
+            <directory>${basedir}/dist/fonts</directory>
+            <outputDirectory>./etc/designs/debijenkorf-website/fonts</outputDirectory>
+            <includes>
+                <include>*.*</include>
+            </includes>
+        </fileSet>
+    </fileSets>
+	
+    <files>
+        <file>
+            <source>${basedir}/dist/bundles/dbk.bundle.js</source>
+            <outputDirectory>./etc/designs/debijenkorf-website/clientlib-dbk/js</outputDirectory>
+        </file>
+        <file>
+            <source>${basedir}/dist/bundles/dbk.bundle.manifest.js</source>
+            <outputDirectory>./etc/designs/debijenkorf-website/clientlib-manifest/js</outputDirectory>
+        </file>
+        <file>
+            <source>${basedir}/dist/bundles/dbk.bundle.vendor.js</source>
+            <outputDirectory>./etc/designs/debijenkorf-website/clientlib-vendor/js</outputDirectory>
+        </file>
+        <file>
+            <source>${basedir}/dist/bundles/dbk.server.bundle.js</source>
+            <outputDirectory>./etc/designs/debijenkorf-website/clientlib-server/js</outputDirectory>
+        </file>        
+    </files>
+	
+</assembly>
